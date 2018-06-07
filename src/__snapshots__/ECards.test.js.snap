@@ -1,0 +1,21 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ECards should show no cards message when no cards exist 1`] = `
+Array [
+  <button
+    onClick={[Function]}
+>
+    Add eCard
+</button>,
+  <div>
+    No Cards
+     
+    <span
+        aria-label="meh"
+        role="img"
+    >
+        😜
+    </span>
+</div>,
+]
+`;
