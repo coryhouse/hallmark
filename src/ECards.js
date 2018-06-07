@@ -5,10 +5,11 @@ class ECards extends React.Component {
   render() {
     return (
       <React.Fragment>
-        <button onClick={this.props.onAddECardClick}>Add eCard</button>
+        <button onClick={this.props.onAddClick}>Add eCard</button>
         <table>
           <thead>
             <tr>
+              <th>&nbsp;</th>
               <th>SKU</th>
               <th>Name</th>
               <th>Category</th>
@@ -18,6 +19,15 @@ class ECards extends React.Component {
             {this.props.eCards.map(card => {
               return (
                 <tr key={card.sku}>
+                  <td>
+                    <button
+                      onClick={event =>
+                        this.props.onDeleteClick(event, card.sku)
+                      }
+                    >
+                      Delete
+                    </button>
+                  </td>
                   <td>{card.sku}</td>
                   <td>{card.name}</td>
                   <td>{card.category}</td>
@@ -33,7 +43,8 @@ class ECards extends React.Component {
 
 ECards.propTypes = {
   eCards: PropTypes.array.isRequired,
-  onAddECardClick: PropTypes.func.isRequired
+  onAddClick: PropTypes.func.isRequired,
+  onDeleteClick: PropTypes.func.isRequired
 };
 
 export default ECards;

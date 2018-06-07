@@ -33,6 +33,11 @@ class App extends React.Component {
     this.setState({ currentPage: "ManageECard" });
   };
 
+  handleDeleteECardClick = (event, sku) => {
+    const eCards = this.state.eCards.filter(eCard => eCard.sku !== sku);
+    this.setState({ eCards });
+  };
+
   handleSaveECard = (event, eCard) => {
     event.preventDefault(); // prevent the page reload.
     const eCards = [...this.state.eCards, eCard];
@@ -47,7 +52,8 @@ class App extends React.Component {
         {this.state.currentPage === "ECards" && (
           <ECards
             eCards={this.state.eCards}
-            onAddECardClick={this.handleAddECardClick}
+            onAddClick={this.handleAddECardClick}
+            onDeleteClick={this.handleDeleteECardClick}
           />
         )}
         {this.state.currentPage === "ManageECard" && (
