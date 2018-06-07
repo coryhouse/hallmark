@@ -2,6 +2,7 @@ import React, { Fragment } from "react";
 import ECards from "./ECards";
 import Home from "./Home";
 import Navigation from "./Navigation";
+import ManageECard from "./ManageECard";
 
 class App extends React.Component {
   constructor(props) {
@@ -10,22 +11,27 @@ class App extends React.Component {
     this.state = {
       currentPage: "Home"
     };
-
-    this.handleNavigationClick = this.handleNavigationClick.bind(this);
   }
 
-  handleNavigationClick(event) {
+  handleNavigationClick = event => {
     event.preventDefault();
-    const newPage = event.target.pathname.split("/")[1];
+    const newPage = event.target.pathname.replace("/", ""); // removing leading slash
     this.setState({ currentPage: newPage });
-  }
+  };
+
+  handleAddECardClick = event => {
+    this.setState({ currentPage: "ManageECard" });
+  };
 
   render() {
     return (
       <Fragment>
         <Navigation onLinkClick={this.handleNavigationClick} />
         {this.state.currentPage === "Home" && <Home />}
-        {this.state.currentPage === "ECards" && <ECards />}
+        {this.state.currentPage === "ECards" && (
+          <ECards onAddECardClick={this.handleAddECardClick} />
+        )}
+        {this.state.currentPage === "ManageECard" && <ManageECard />}
       </Fragment>
     );
   }
