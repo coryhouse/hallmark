@@ -34,7 +34,9 @@ class App extends React.Component {
   };
 
   handleSaveECard = (event, eCard) => {
-    debugger;
+    event.preventDefault(); // prevent the page reload.
+    const eCards = [...this.state.eCards, eCard];
+    this.setState({ eCards, currentPage: "ECards" });
   };
 
   render() {
