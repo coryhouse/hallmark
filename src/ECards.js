@@ -1,5 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
+import { Link } from "react-router-dom";
 
 class ECards extends React.Component {
   renderTable() {
@@ -38,7 +39,7 @@ class ECards extends React.Component {
   render() {
     return (
       <React.Fragment>
-        <button onClick={this.props.onAddClick}>Add eCard</button>
+        <Link to="/manage">Add eCard</Link>
         {this.props.eCards.length === 0 ? (
           <div>
             No Cards{" "}
@@ -56,7 +57,6 @@ class ECards extends React.Component {
 
 ECards.propTypes = {
   eCards: PropTypes.array.isRequired,
-  onAddClick: PropTypes.func.isRequired,
   onDeleteClick: PropTypes.func.isRequired
 };
 

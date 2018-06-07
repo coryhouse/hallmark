@@ -1,18 +1,15 @@
 import React, { Component } from "react";
+import { Link } from "react-router-dom";
 
 class Navigation extends Component {
   render() {
     return (
       <ul>
         <li>
-          <a href="Home" onClick={this.props.onLinkClick}>
-            Home
-          </a>
+          <Link to="/">Home</Link>
         </li>
         <li>
-          <a href="ECards" onClick={this.props.onLinkClick}>
-            eCards
-          </a>
+          <Link to="/ecards">eCards</Link>
         </li>
       </ul>
     );
