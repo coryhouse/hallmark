@@ -1,5 +1,53 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`ECards should show cards table when cards exist 1`] = `
+Array [
+  <button
+    onClick={[Function]}
+>
+    Add eCard
+</button>,
+  <table>
+    <thead>
+        <tr>
+            <th>
+                 
+            </th>
+            <th>
+                SKU
+            </th>
+            <th>
+                Name
+            </th>
+            <th>
+                Category
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+                <button
+                    onClick={[Function]}
+                >
+                    Delete
+                </button>
+            </td>
+            <td>
+                1
+            </td>
+            <td>
+                Cory, You're Amazing
+            </td>
+            <td>
+                Truth.
+            </td>
+        </tr>
+    </tbody>
+</table>,
+]
+`;
+
 exports[`ECards should show no cards message when no cards exist 1`] = `
 Array [
   <button
