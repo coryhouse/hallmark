@@ -8,7 +8,8 @@ class ManageECard extends Component {
   };
 
   static propTypes = {
-    eCard: PropTypes.object.isRequired
+    eCard: PropTypes.object.isRequired,
+    onSubmit: PropTypes.func.isRequired
   };
 
   handleChange = event => {
@@ -22,7 +23,7 @@ class ManageECard extends Component {
     const { sku, name, category } = this.state.eCard;
 
     return (
-      <form>
+      <form onSubmit={event => this.props.onSubmit(event, this.state.eCard)}>
         <TextInput
           name="sku"
           label="SKU"

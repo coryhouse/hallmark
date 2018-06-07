@@ -3,12 +3,6 @@ import PropTypes from "prop-types";
 
 class ECards extends React.Component {
   render() {
-    const eCards = [
-      { sku: 1, name: "Cory, You're Amazing", category: "Truth." },
-      { sku: 2, name: "Happy Birthday Nadia!!!!111", category: "Birthday" },
-      { sku: 3, name: "Happy Father's Day!", category: "Fathers Day" }
-    ];
-
     return (
       <React.Fragment>
         <button onClick={this.props.onAddECardClick}>Add eCard</button>
@@ -21,7 +15,7 @@ class ECards extends React.Component {
             </tr>
           </thead>
           <tbody>
-            {eCards.map(card => {
+            {this.props.eCards.map(card => {
               return (
                 <tr key={card.sku}>
                   <td>{card.sku}</td>
@@ -38,6 +32,7 @@ class ECards extends React.Component {
 }
 
 ECards.propTypes = {
+  eCards: PropTypes.array.isRequired,
   onAddECardClick: PropTypes.func.isRequired
 };
 

@@ -14,7 +14,12 @@ class App extends React.Component {
         sku: "",
         name: "",
         category: ""
-      }
+      },
+      eCards: [
+        { sku: 1, name: "Cory, You're Amazing", category: "Truth." },
+        { sku: 2, name: "Happy Birthday Nadia!!!!111", category: "Birthday" },
+        { sku: 3, name: "Happy Father's Day!", category: "Fathers Day" }
+      ]
     };
   }
 
@@ -28,16 +33,26 @@ class App extends React.Component {
     this.setState({ currentPage: "ManageECard" });
   };
 
+  handleSaveECard = (event, eCard) => {
+    debugger;
+  };
+
   render() {
     return (
       <Fragment>
         <Navigation onLinkClick={this.handleNavigationClick} />
         {this.state.currentPage === "Home" && <Home />}
         {this.state.currentPage === "ECards" && (
-          <ECards onAddECardClick={this.handleAddECardClick} />
+          <ECards
+            eCards={this.state.eCards}
+            onAddECardClick={this.handleAddECardClick}
+          />
         )}
         {this.state.currentPage === "ManageECard" && (
-          <ManageECard eCard={this.state.newECard} />
+          <ManageECard
+            eCard={this.state.newECard}
+            onSubmit={this.handleSaveECard}
+          />
         )}
       </Fragment>
     );
