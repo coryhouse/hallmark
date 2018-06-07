@@ -10,15 +10,9 @@ class ManageECard extends Component {
     eCard: PropTypes.object.isRequired
   };
 
-  handleSkuChange = event => {
+  handleChange = event => {
     const eCard = { ...this.state.eCard };
-    eCard.sku = event.target.value;
-    this.setState({ eCard });
-  };
-
-  handleNameChange = event => {
-    const eCard = { ...this.state.eCard };
-    eCard.name = event.target.value;
+    eCard[event.target.name] = event.target.value;
     this.setState({ eCard });
   };
 
@@ -35,7 +29,7 @@ class ManageECard extends Component {
             type="text"
             name="sku"
             value={sku}
-            onChange={this.handleSkuChange}
+            onChange={this.handleChange}
           />
         </div>
 
@@ -46,14 +40,19 @@ class ManageECard extends Component {
             type="text"
             name="name"
             value={name}
-            onChange={this.handleNameChange}
+            onChange={this.handleChange}
           />
         </div>
 
         <div>
           <label>Category</label>
           <br />
-          <input type="text" name="category" value={category} />
+          <input
+            type="text"
+            name="category"
+            value={category}
+            onChange={this.handleChange}
+          />
         </div>
 
         <input type="submit" value="Save eCard" />
