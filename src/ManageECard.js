@@ -16,6 +16,12 @@ class ManageECard extends Component {
     this.setState({ eCard });
   };
 
+  handleNameChange = event => {
+    const eCard = { ...this.state.eCard };
+    eCard.name = event.target.value;
+    this.setState({ eCard });
+  };
+
   render() {
     // Destructuring to shorten calls below.
     const { sku, name, category } = this.state.eCard;
@@ -25,19 +31,29 @@ class ManageECard extends Component {
         <div>
           <label>SKU</label>
           <br />
-          <input type="text" value={sku} onChange={this.handleSkuChange} />
+          <input
+            type="text"
+            name="sku"
+            value={sku}
+            onChange={this.handleSkuChange}
+          />
         </div>
 
         <div>
           <label>Name</label>
           <br />
-          <input type="text" value={name} />
+          <input
+            type="text"
+            name="name"
+            value={name}
+            onChange={this.handleNameChange}
+          />
         </div>
 
         <div>
           <label>Category</label>
           <br />
-          <input type="text" value={category} />
+          <input type="text" name="category" value={category} />
         </div>
 
         <input type="submit" value="Save eCard" />
