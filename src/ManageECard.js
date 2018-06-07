@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
+import TextInput from "./TextInput";
 
 class ManageECard extends Component {
   state = {
@@ -22,38 +23,24 @@ class ManageECard extends Component {
 
     return (
       <form>
-        <div>
-          <label>SKU</label>
-          <br />
-          <input
-            type="text"
-            name="sku"
-            value={sku}
-            onChange={this.handleChange}
-          />
-        </div>
-
-        <div>
-          <label>Name</label>
-          <br />
-          <input
-            type="text"
-            name="name"
-            value={name}
-            onChange={this.handleChange}
-          />
-        </div>
-
-        <div>
-          <label>Category</label>
-          <br />
-          <input
-            type="text"
-            name="category"
-            value={category}
-            onChange={this.handleChange}
-          />
-        </div>
+        <TextInput
+          name="sku"
+          label="SKU"
+          onChange={this.handleChange}
+          value={sku}
+        />
+        <TextInput
+          name="name"
+          label="Name"
+          onChange={this.handleChange}
+          value={name}
+        />
+        <TextInput
+          name="category"
+          label="Category"
+          onChange={this.handleChange}
+          value={category}
+        />
 
         <input type="submit" value="Save eCard" />
       </form>
